@@ -23,6 +23,9 @@ export const LTrigger: React.FC<{
               pressed
                 ? "opacity: 0.85;"
                 : `
+            #path-1 {
+                fill: ${buttonColor};
+            }
             text {
                 fill: ${textColor};
             }
