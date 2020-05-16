@@ -34,7 +34,7 @@ export const RTrigger: React.FC<{
         }
     `}
     text {
-      fill: ${value >= 0.5 ? textColor : buttonColor};
+      fill: ${value >= 0.8 ? textColor : buttonColor};
     }
     svg {
       overflow: visible;
