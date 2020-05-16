@@ -106,8 +106,7 @@ const DPad: React.FC<{
   const { isPressed, onButtonClick } = props;
   const Outer = styled.div`
     display: grid;
-    grid-template-columns: 6em 5em 6em;
-    font-size: 0.8em;
+    font-size: 0.5em;
   `;
   return (
     <Outer>

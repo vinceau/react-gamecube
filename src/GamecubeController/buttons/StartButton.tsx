@@ -15,7 +15,7 @@ export const StartButton: React.FC<{
     height: 3.5em;
     border-radius: 50%;
     background-color: ${pressed ? buttonColor : "transparent"};
-    border: solid 0.2em ${buttonColor};
+    border: solid 0.3em ${buttonColor};
     display: flex;
     justify-content: center;
     align-items: center;
