@@ -12,7 +12,7 @@ export const ZButton: React.FC<{
   const textColor = "white";
   const Outer = styled.div`
     width: 18em;
-    height: 5em;
+    height: 4em;
     border-radius: 3.5em;
     background-color: ${pressed ? buttonColor : "transparent"};
     border: solid 0.4em ${buttonColor};
