@@ -2,9 +2,9 @@ import React from "react";
 import TestComponent from "./TestComponent";
 
 export default {
-  title: "TestComponent"
+  title: "TestComponent",
 };
 
-export const Primary = () => <TestComponent theme="primary" />;
+export const Primary = (): JSX.Element => <TestComponent theme="primary" />;
 
-export const Secondary = () => <TestComponent theme="secondary" />;
+export const Secondary = (): JSX.Element => <TestComponent theme="secondary" />;
