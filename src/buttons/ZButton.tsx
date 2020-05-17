@@ -3,11 +3,12 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const ZButton: React.FC<{
+  hideButtonText?: boolean;
   pressed?: boolean;
   color?: string;
   onClick?: () => void;
 }> = (props) => {
-  const { pressed, onClick } = props;
+  const { hideButtonText, pressed, onClick } = props;
   const buttonColor = props.color || "#6F1FFF";
   const textColor = "white";
   const Outer = styled.div`
@@ -36,6 +37,7 @@ export const ZButton: React.FC<{
             }
         `}
     span {
+      display: ${hideButtonText ? "none" : "inline"};
       font-size: 3.5em;
       color: ${pressed ? textColor : buttonColor};
     }

@@ -74,3 +74,19 @@ export const ClickableHideAnalogSticks = (): JSX.Element => {
   };
   return <ControllerLayout hideAnalogSticks={true} value={value} onClick={onClick} />;
 };
+
+export const ClickableHideText = (): JSX.Element => {
+  const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
+  const onClick = (input: ButtonInput): void => {
+    setValue((oldState) => toggleButton(input, oldState));
+  };
+  return <ControllerLayout hideButtonText={true} value={value} onClick={onClick} />;
+};
+
+export const ClickableHideAnalogSticksAndText = (): JSX.Element => {
+  const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
+  const onClick = (input: ButtonInput): void => {
+    setValue((oldState) => toggleButton(input, oldState));
+  };
+  return <ControllerLayout hideButtonText={true} hideAnalogSticks={true} value={value} onClick={onClick} />;
+};

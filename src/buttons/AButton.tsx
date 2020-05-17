@@ -5,9 +5,10 @@ import styled from "@emotion/styled";
 export const AButton: React.FC<{
   pressed?: boolean;
   color?: string;
+  hideButtonText?: boolean;
   onClick?: () => void;
 }> = (props) => {
-  const { pressed, onClick } = props;
+  const { hideButtonText, pressed, onClick } = props;
   const buttonColor = props.color || "#00674F";
   const textColor = "white";
   const Outer = styled.div`
@@ -36,6 +37,7 @@ export const AButton: React.FC<{
             }
         `}
     span {
+      display: ${hideButtonText ? "none" : "inline"};
       font-size: 4.8em;
       color: ${pressed ? textColor : buttonColor};
     }

@@ -3,11 +3,12 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const XButton: React.FC<{
+  hideButtonText?: boolean;
   pressed?: boolean;
   color?: string;
   onClick?: () => void;
 }> = (props) => {
-  const { onClick, pressed } = props;
+  const { hideButtonText, onClick, pressed } = props;
   const buttonColor = props.color || "#8F8F8F";
   const textColor = "white";
   const Outer = styled.div`
@@ -31,6 +32,7 @@ export const XButton: React.FC<{
         }
     `}
     text {
+      display: ${hideButtonText ? "none" : "inline"};
       fill: ${pressed ? textColor : buttonColor};
     }
     svg {

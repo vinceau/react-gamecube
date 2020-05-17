@@ -4,11 +4,12 @@ import styled from "@emotion/styled";
 
 export const LTrigger: React.FC<{
   pressed?: boolean;
+  hideButtonText?: boolean;
   value?: number;
   color?: string;
   onClick?: () => void;
 }> = (props) => {
-  const { onClick, pressed } = props;
+  const { hideButtonText, onClick, pressed } = props;
   const value = pressed ? 1 : props.value ? props.value : 0;
   const offset = `${(1 - value) * 100}%`;
   const buttonColor = props.color || "#8F8F8F";
@@ -34,6 +35,7 @@ export const LTrigger: React.FC<{
         }
     `}
     text {
+      display: ${hideButtonText ? "none" : "inline"};
       fill: ${pressed ? textColor : buttonColor};
     }
     svg {

@@ -6,4 +6,6 @@ export default {
 };
 
 export const Default = (): JSX.Element => <AButton />;
+export const NoText = (): JSX.Element => <AButton hideButtonText={true} />;
 export const Pressed = (): JSX.Element => <AButton pressed />;
+export const PressedNoText = (): JSX.Element => <AButton pressed hideButtonText={true} />;
