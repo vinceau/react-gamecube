@@ -10,6 +10,10 @@ export const Primary = (): JSX.Element => {
   return <ControllerLayout />;
 };
 
+export const HideAnalogSticks = (): JSX.Element => {
+  return <ControllerLayout hideAnalogSticks={true} />;
+};
+
 export const ClickHandler = (): JSX.Element => {
   const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
   const onClick = (input: string): void => {
