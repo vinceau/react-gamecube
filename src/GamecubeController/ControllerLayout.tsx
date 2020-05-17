@@ -36,17 +36,21 @@ export const ControllerLayout: React.FC<{
       font-size: 12px;
     }
   `;
+  const lHandler = onClick ? (): void => onClick(ButtonInput.L) : undefined;
+  const rHandler = onClick ? (): void => onClick(ButtonInput.R) : undefined;
+  const zHandler = onClick ? (): void => onClick(ButtonInput.Z) : undefined;
+  const startHandler = onClick ? (): void => onClick(ButtonInput.START) : undefined;
   return (
     <Outer>
-      <LTrigger pressed={value.l} onClick={(): void => onClick(ButtonInput.L)} />
-      <ZButton pressed={value.z} onClick={(): void => onClick(ButtonInput.Z)} />
-      <RTrigger pressed={value.r} onClick={(): void => onClick(ButtonInput.R)} />
+      <LTrigger pressed={value.l} onClick={lHandler} />
+      <ZButton pressed={value.z} onClick={zHandler} />
+      <RTrigger pressed={value.r} onClick={rHandler} />
       {hideAnalogSticks ? (
         <Dpad value={value} onClick={onClick} />
       ) : (
         <AnalogStick x={value.controlX} y={value.controlY} />
       )}
-      <StartButton pressed={value.start} onClick={(): void => onClick(ButtonInput.START)} />
+      <StartButton pressed={value.start} onClick={startHandler} />
       <MainButtons value={value} onClick={onClick} />
     </Outer>
   );
@@ -63,19 +67,23 @@ const MainButtons: React.FC<{
     grid-gap: 1.2em;
     grid-template-columns: repeat(3, 1fr);
   `;
+  const yHandler = onClick ? (): void => onClick(ButtonInput.Y) : undefined;
+  const xHandler = onClick ? (): void => onClick(ButtonInput.X) : undefined;
+  const aHandler = onClick ? (): void => onClick(ButtonInput.A) : undefined;
+  const bHandler = onClick ? (): void => onClick(ButtonInput.B) : undefined;
   return (
     <Outer>
       <span style={{ gridColumn: "1 / 3", gridRow: "1 / 2", justifySelf: "end" }}>
-        <YButton pressed={value.y} onClick={(): void => onClick(ButtonInput.Y)} />
+        <YButton pressed={value.y} onClick={yHandler} />
       </span>
       <span style={{ gridColumn: "2 / 3", gridRow: "2 / 4" }}>
-        <AButton pressed={value.a} onClick={(): void => onClick(ButtonInput.A)} />
+        <AButton pressed={value.a} onClick={aHandler} />
       </span>
       <span style={{ gridColumn: "3 / 4", gridRow: "1 / 4", alignSelf: "end" }}>
-        <XButton pressed={value.x} onClick={(): void => onClick(ButtonInput.X)} />
+        <XButton pressed={value.x} onClick={xHandler} />
       </span>
       <span style={{ gridColumn: "1 / 2", gridRow: "1 / 4", alignSelf: "end", justifySelf: "end" }}>
-        <BButton pressed={value.b} onClick={(): void => onClick(ButtonInput.B)} />
+        <BButton pressed={value.b} onClick={bHandler} />
       </span>
     </Outer>
   );
