@@ -14,7 +14,7 @@
     "start": "start-storybook -p 6060",
     "storybook": "build-storybook",
     "prepublishOnly": "yarn run build",
-    "lint": "eslint '*/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "yarn run lint --fix"
   },
   "keywords": [
