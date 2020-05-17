@@ -7,8 +7,8 @@ export const AnalogStick: React.FC<{
   color?: string;
   strokeColor?: string;
 }> = (props) => {
-  const outerWidth = 7; // in em
-  const innerWidth = 5; // in em
+  const outerWidth = 13; // in em
+  const innerWidth = 9; // in em
   const maxEndPosition = 0.35; // how far away the circle should go
   const color = props.color ? props.color : "none";
   const strokeColor = props.strokeColor ? props.strokeColor : "#000000";
