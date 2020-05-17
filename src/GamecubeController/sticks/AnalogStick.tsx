@@ -5,13 +5,15 @@ export const AnalogStick: React.FC<{
   x?: number;
   y?: number;
   color?: string;
+  backgroundColor?: string;
   strokeColor?: string;
 }> = (props) => {
   const outerWidth = 13; // in em
   const innerWidth = 9; // in em
   const maxEndPosition = 0.35; // how far away the circle should go
-  const color = props.color ? props.color : "none";
-  const strokeColor = props.strokeColor ? props.strokeColor : "#000000";
+  const color = props.color ? props.color : "#FFFFFF";
+  const backgroundColor = props.color ? props.color : "#FFFFFF";
+  const strokeColor = props.strokeColor ? props.strokeColor : "#8F8F8F";
   const xValue = props.x !== undefined ? props.x : 0;
   const yValue = props.y !== undefined ? props.y : 0;
   const leftPos = `${50 + xValue * maxEndPosition * 100}%`;
@@ -41,8 +43,8 @@ export const AnalogStick: React.FC<{
           <polygon
             id="path3399"
             stroke={strokeColor}
-            strokeWidth="2"
-            fill={color}
+            strokeWidth="5"
+            fill={backgroundColor}
             fillRule="nonzero"
             points="210 106 179.53911 179.53911 106 210 32.460895 179.53911 2 106 32.460895 32.460895 106 2 179.53911 32.460895"
           />
