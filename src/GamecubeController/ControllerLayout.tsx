@@ -5,12 +5,14 @@ import styled from "@emotion/styled";
 import { AButton, BButton, LTrigger, RTrigger, StartButton, XButton, YButton, ZButton } from "./buttons";
 import { ButtonInput, ControllerInputState, MainButtonsInputState } from "./types";
 import { Dpad } from "./Dpad";
+import { AnalogStick } from "./sticks/AnalogStick";
 
 export const ControllerLayout: React.FC<{
   value?: Partial<ControllerInputState>;
+  hideAnalogSticks?: boolean;
   onClick?: (button: ButtonInput) => void;
 }> = (props) => {
-  const { onClick } = props;
+  const { hideAnalogSticks, onClick } = props;
   const value = props.value ? props.value : {};
   const Outer = styled.div`
     display: grid;
@@ -39,7 +41,11 @@ export const ControllerLayout: React.FC<{
       <LTrigger pressed={value.l} onClick={(): void => onClick(ButtonInput.L)} />
       <ZButton pressed={value.z} onClick={(): void => onClick(ButtonInput.Z)} />
       <RTrigger pressed={value.r} onClick={(): void => onClick(ButtonInput.R)} />
-      <Dpad value={value} onClick={onClick} />
+      {hideAnalogSticks ? (
+        <Dpad value={value} onClick={onClick} />
+      ) : (
+        <AnalogStick x={value.controlX} y={value.controlY} />
+      )}
       <StartButton pressed={value.start} onClick={(): void => onClick(ButtonInput.START)} />
       <MainButtons value={value} onClick={onClick} />
     </Outer>
