@@ -4,7 +4,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import sass from "rollup-plugin-sass";
-import copy from "rollup-plugin-copy";
 
 import pkg from "./package.json";
 
@@ -39,20 +38,6 @@ export default {
     typescript({ useTsconfigDeclarationDir: true }),
     sass({
       insert: true,
-    }),
-    copy({
-      targets: [
-        {
-          src: "src/variables.scss",
-          dest: "build",
-          rename: "variables.scss",
-        },
-        {
-          src: "src/typography.scss",
-          dest: "build",
-          rename: "typography.scss",
-        },
-      ],
     }),
   ],
 };
