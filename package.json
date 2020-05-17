@@ -9,7 +9,7 @@
   "description": "Gamecube controller input display",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "start": "start-storybook -p 6060",
     "storybook": "build-storybook",
