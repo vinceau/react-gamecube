@@ -1,3 +1,5 @@
-import TestComponent from "./TestComponent/TestComponent";
+export * from "./buttons";
+export * from "./sticks";
 
-export { TestComponent };
+export { ControllerLayout } from "./ControllerLayout";
+export { Dpad } from "./Dpad";
