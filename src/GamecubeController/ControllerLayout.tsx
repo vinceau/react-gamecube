@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import { AButton, BButton, LTrigger, RTrigger, StartButton, XButton, YButton, ZButton } from "./buttons";
 import { ButtonInput, ControllerInputState, MainButtonsInputState } from "./types";
-import { DPad } from "./Dpad";
+import { Dpad } from "./Dpad";
 
 export const ControllerLayout: React.FC<{
   value?: Partial<ControllerInputState>;
@@ -39,7 +39,7 @@ export const ControllerLayout: React.FC<{
       <LTrigger pressed={value.l} onClick={(): void => onClick(ButtonInput.L)} />
       <ZButton pressed={value.z} onClick={(): void => onClick(ButtonInput.Z)} />
       <RTrigger pressed={value.r} onClick={(): void => onClick(ButtonInput.R)} />
-      <DPad value={value} onClick={onClick} />
+      <Dpad value={value} onClick={onClick} />
       <StartButton pressed={value.start} onClick={(): void => onClick(ButtonInput.START)} />
       <MainButtons value={value} onClick={onClick} />
     </Outer>

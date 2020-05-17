@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { DpadInputState, ButtonInput } from "./types";
 import { DpadUp, DpadLeft, DpadRight, DpadDown } from "./buttons";
 
-export const DPad: React.FC<{
+export const Dpad: React.FC<{
   value?: Partial<DpadInputState>;
   onClick: (input: ButtonInput) => void;
 }> = (props) => {
