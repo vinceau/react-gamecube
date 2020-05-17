@@ -12,7 +12,7 @@ export const Primary = (): JSX.Element => {
 
 export const ClickHandler = (): JSX.Element => {
   const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
-  const onClick = (input: ButtonInput): void => {
+  const onClick = (input: string): void => {
     setValue((oldState) => {
       const newState = {
         ...oldState,
