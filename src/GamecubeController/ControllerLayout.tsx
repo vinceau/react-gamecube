@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { AButton, BButton, LTrigger, RTrigger, StartButton, XButton, YButton, ZButton } from "./buttons";
 import { ButtonInput, ControllerInputState, MainButtonsInputState } from "./types";
 import { Dpad } from "./Dpad";
-import { AnalogStick } from "./sticks/AnalogStick";
+import { AnalogStick, CStick } from "./sticks";
 
 export const ControllerLayout: React.FC<{
   value?: Partial<ControllerInputState>;
@@ -36,6 +36,14 @@ export const ControllerLayout: React.FC<{
       font-size: 12px;
     }
   `;
+  const CStickContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-column-start: span 3;
+  `;
   const lHandler = onClick ? (): void => onClick(ButtonInput.L) : undefined;
   const rHandler = onClick ? (): void => onClick(ButtonInput.R) : undefined;
   const zHandler = onClick ? (): void => onClick(ButtonInput.Z) : undefined;
@@ -52,6 +60,12 @@ export const ControllerLayout: React.FC<{
       )}
       <StartButton pressed={value.start} onClick={startHandler} />
       <MainButtons value={value} onClick={onClick} />
+      {!hideAnalogSticks && (
+        <CStickContainer>
+          <Dpad value={value} onClick={onClick} />
+          <CStick x={value.cStickX} y={value.cStickY} />
+        </CStickContainer>
+      )}
     </Outer>
   );
 };
