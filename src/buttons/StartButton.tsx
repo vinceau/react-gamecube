@@ -6,11 +6,12 @@ export const StartButton: React.FC<{
   hideButtonText?: boolean;
   pressed?: boolean;
   color?: string;
+  backgroundColor?: string;
   onClick?: () => void;
 }> = (props) => {
   const { hideButtonText, pressed, onClick } = props;
-  const buttonColor = props.color || "#8F8F8F";
-  const textColor = "white";
+  const buttonColor = props.backgroundColor || "#8F8F8F";
+  const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
     width: 3.5em;
     height: 3.5em;

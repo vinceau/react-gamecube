@@ -6,11 +6,12 @@ export const ZButton: React.FC<{
   hideButtonText?: boolean;
   pressed?: boolean;
   color?: string;
+  backgroundColor?: string;
   onClick?: () => void;
 }> = (props) => {
   const { hideButtonText, pressed, onClick } = props;
-  const buttonColor = props.color || "#6F1FFF";
-  const textColor = "white";
+  const buttonColor = props.backgroundColor || "#6F1FFF";
+  const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
     width: 18em;
     height: 4em;

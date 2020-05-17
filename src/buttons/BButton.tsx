@@ -3,14 +3,15 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const BButton: React.FC<{
-  hideButtonText?: boolean;
   pressed?: boolean;
   color?: string;
+  backgroundColor?: string;
+  hideButtonText?: boolean;
   onClick?: () => void;
 }> = (props) => {
-  const { pressed, hideButtonText, onClick } = props;
-  const buttonColor = props.color || "#BF2323";
-  const textColor = "white";
+  const { hideButtonText, pressed, onClick } = props;
+  const buttonColor = props.backgroundColor || "#BF2323";
+  const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
     width: 5em;
     height: 5em;
