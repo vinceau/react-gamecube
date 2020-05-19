@@ -63,7 +63,7 @@ export const RTrigger: React.FC<{
             transform="translate(117.920733, 70.343725) scale(-1, 1) translate(-117.920733, -70.343725)"
             d="M234.941486,37.9102532 C140.587902,69.5466833 51.1762154,107.627989 0.8999803,140.68745 C12.1209681,60.8935071 71.693988,0 143.5,0 C178.19432,0 210.03284,14.215631 234.941486,37.9102532 Z"
           />
-          <text alignmentBaseline="middle" textAnchor="middle" x="50%" y="40%" fontSize="52">
+          <text alignmentBaseline="middle" textAnchor="middle" x="50%" y="33%" fontSize="52">
             R
           </text>
         </g>
