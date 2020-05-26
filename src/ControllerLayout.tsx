@@ -52,9 +52,9 @@ export const ControllerLayout: React.FC<{
   const startHandler = onClick ? (): void => onClick(ButtonInput.START) : undefined;
   return (
     <Outer>
-      <LTrigger pressed={value.l} onClick={lHandler} hideButtonText={hideButtonText} />
+      <LTrigger pressed={value.l} value={value.lValue} onClick={lHandler} hideButtonText={hideButtonText} />
       <ZButton pressed={value.z} onClick={zHandler} hideButtonText={hideButtonText} />
-      <RTrigger pressed={value.r} onClick={rHandler} hideButtonText={hideButtonText} />
+      <RTrigger pressed={value.r} value={value.rValue} onClick={rHandler} hideButtonText={hideButtonText} />
       {hideAnalogSticks ? (
         <Dpad value={value} onClick={onClick} />
       ) : (
