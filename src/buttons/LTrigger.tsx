@@ -40,7 +40,7 @@ export const LTrigger: React.FC<{
       `}
     >
       <SVGUniqueID>
-        <svg width="100%" viewBox="0 0 235 141" version="1.1" overflow="visible">
+        <svg width="100%" viewBox="0 0 235 141" version="1.1" overflow="visible" style={{ overflow: "visible" }}>
           <linearGradient id="lprogress" x1="0.5" y1="1" x2="0.5" y2="0">
             <stop offset="0%" stopOpacity="0" stopColor={backgroundColor} />
             <stop offset={offset} stopOpacity="0" stopColor={backgroundColor} />
