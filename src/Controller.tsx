@@ -7,7 +7,7 @@ import { ButtonInput, ControllerInputState, MainButtonsInputState } from "./type
 import { Dpad } from "./Dpad";
 import { AnalogStick, CStick } from "./sticks";
 
-export const ControllerLayout: React.FC<{
+export const Controller: React.FC<{
   value?: Partial<ControllerInputState>;
   hideAnalogSticks?: boolean;
   hideButtonText?: boolean;
