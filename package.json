@@ -70,5 +70,8 @@
     "sass-loader": "^8.0.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "react-svg-unique-id": "^1.3.3"
   }
 }
