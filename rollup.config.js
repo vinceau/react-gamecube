@@ -34,7 +34,9 @@ export default {
     }),
     peerDepsExternal(),
     resolve(),
-    commonjs(),
+    commonjs({
+      exclude: ["node_modules/react-svg-unique-id/**/*.js"],
+    }),
     typescript({ useTsconfigDeclarationDir: true }),
     sass({
       insert: true,
