@@ -16,6 +16,7 @@ export const ControllerLayout: React.FC<{
   const { hideButtonText, hideAnalogSticks, onClick } = props;
   const value = props.value ? props.value : {};
   const Outer = styled.div`
+    box-sizing: content-box;
     display: grid;
     align-items: center;
     justify-items: center;

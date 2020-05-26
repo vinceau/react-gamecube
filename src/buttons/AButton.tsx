@@ -13,6 +13,7 @@ export const AButton: React.FC<{
   const buttonColor = props.backgroundColor || "#00674F";
   const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
+    box-sizing: content-box;
     width: 9em;
     height: 9em;
     border-radius: 50%;

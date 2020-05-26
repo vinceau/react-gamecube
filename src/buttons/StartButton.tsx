@@ -13,6 +13,7 @@ export const StartButton: React.FC<{
   const buttonColor = props.backgroundColor || "#8F8F8F";
   const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
+    box-sizing: content-box;
     width: 3.5em;
     height: 3.5em;
     border-radius: 50%;

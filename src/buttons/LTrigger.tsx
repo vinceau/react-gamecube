@@ -16,6 +16,7 @@ export const LTrigger: React.FC<{
   const buttonColor = props.backgroundColor || "#8F8F8F";
   const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
+    box-sizing: content-box;
     width: 15em;
     ${onClick &&
     `

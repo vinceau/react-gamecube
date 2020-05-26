@@ -19,6 +19,7 @@ export const CStick: React.FC<{
   const leftPos = `${50 + xValue * maxEndPosition * 100}%`;
   const topPos = `${50 - yValue * maxEndPosition * 100}%`;
   const Outer = styled.div`
+    box-sizing: content-box;
     position: relative;
     width: ${outerWidth}em;
     height: ${outerWidth}em;
