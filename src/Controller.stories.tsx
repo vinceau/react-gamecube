@@ -1,17 +1,17 @@
 import React from "react";
-import { ControllerLayout } from "./ControllerLayout";
+import { Controller } from "./Controller";
 import { ButtonInput, ControllerInputState } from "./types";
 
 export default {
-  title: "ControllerLayout",
+  title: "Controller",
 };
 
 export const Primary = (): JSX.Element => {
-  return <ControllerLayout />;
+  return <Controller />;
 };
 
 export const HideAnalogSticks = (): JSX.Element => {
-  return <ControllerLayout hideAnalogSticks={true} />;
+  return <Controller hideAnalogSticks={true} />;
 };
 
 const toggleButton = (input: ButtonInput, oldState: Partial<ControllerInputState>): Partial<ControllerInputState> => {
@@ -64,7 +64,7 @@ export const Clickable = (): JSX.Element => {
   const onClick = (input: ButtonInput): void => {
     setValue((oldState) => toggleButton(input, oldState));
   };
-  return <ControllerLayout value={value} onClick={onClick} />;
+  return <Controller value={value} onClick={onClick} />;
 };
 
 export const ClickableHideAnalogSticks = (): JSX.Element => {
@@ -72,7 +72,7 @@ export const ClickableHideAnalogSticks = (): JSX.Element => {
   const onClick = (input: ButtonInput): void => {
     setValue((oldState) => toggleButton(input, oldState));
   };
-  return <ControllerLayout hideAnalogSticks={true} value={value} onClick={onClick} />;
+  return <Controller hideAnalogSticks={true} value={value} onClick={onClick} />;
 };
 
 export const ClickableHideText = (): JSX.Element => {
@@ -80,7 +80,7 @@ export const ClickableHideText = (): JSX.Element => {
   const onClick = (input: ButtonInput): void => {
     setValue((oldState) => toggleButton(input, oldState));
   };
-  return <ControllerLayout hideButtonText={true} value={value} onClick={onClick} />;
+  return <Controller hideButtonText={true} value={value} onClick={onClick} />;
 };
 
 export const ClickableHideAnalogSticksAndText = (): JSX.Element => {
@@ -88,5 +88,5 @@ export const ClickableHideAnalogSticksAndText = (): JSX.Element => {
   const onClick = (input: ButtonInput): void => {
     setValue((oldState) => toggleButton(input, oldState));
   };
-  return <ControllerLayout hideButtonText={true} hideAnalogSticks={true} value={value} onClick={onClick} />;
+  return <Controller hideButtonText={true} hideAnalogSticks={true} value={value} onClick={onClick} />;
 };

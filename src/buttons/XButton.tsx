@@ -13,6 +13,7 @@ export const XButton: React.FC<{
   const buttonColor = props.backgroundColor || "#8F8F8F";
   const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
+    box-sizing: content-box;
     width: 6em;
     ${onClick &&
     `
@@ -55,7 +56,7 @@ export const XButton: React.FC<{
               />
             </g>
           </g>
-          <text alignmentBaseline="middle" textAnchor="middle" x="50%" y="60%" fontSize="52">
+          <text alignmentBaseline="middle" textAnchor="middle" x="50%" y="50%" fontSize="52">
             X
           </text>
         </g>

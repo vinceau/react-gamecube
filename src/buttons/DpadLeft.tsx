@@ -11,6 +11,7 @@ export const DpadLeft: React.FC<{
   const buttonColor = props.color || "#8F8F8F";
   const textColor = "white";
   const Outer = styled.div`
+    box-sizing: content-box;
     width: 5em;
     height: 5em;
     border-top-left-radius: 1em;

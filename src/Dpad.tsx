@@ -11,6 +11,7 @@ export const Dpad: React.FC<{
   const value = props.value ? props.value : {};
   const { onClick } = props;
   const Outer = styled.div`
+    box-sizing: content-box;
     display: grid;
     font-size: 0.5em;
   `;

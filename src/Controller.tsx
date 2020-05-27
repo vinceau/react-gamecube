@@ -7,7 +7,7 @@ import { ButtonInput, ControllerInputState, MainButtonsInputState } from "./type
 import { Dpad } from "./Dpad";
 import { AnalogStick, CStick } from "./sticks";
 
-export const ControllerLayout: React.FC<{
+export const Controller: React.FC<{
   value?: Partial<ControllerInputState>;
   hideAnalogSticks?: boolean;
   hideButtonText?: boolean;
@@ -16,6 +16,7 @@ export const ControllerLayout: React.FC<{
   const { hideButtonText, hideAnalogSticks, onClick } = props;
   const value = props.value ? props.value : {};
   const Outer = styled.div`
+    box-sizing: content-box;
     display: grid;
     align-items: center;
     justify-items: center;
@@ -51,9 +52,9 @@ export const ControllerLayout: React.FC<{
   const startHandler = onClick ? (): void => onClick(ButtonInput.START) : undefined;
   return (
     <Outer>
-      <LTrigger pressed={value.l} onClick={lHandler} hideButtonText={hideButtonText} />
+      <LTrigger pressed={value.l} value={value.lValue} onClick={lHandler} hideButtonText={hideButtonText} />
       <ZButton pressed={value.z} onClick={zHandler} hideButtonText={hideButtonText} />
-      <RTrigger pressed={value.r} onClick={rHandler} hideButtonText={hideButtonText} />
+      <RTrigger pressed={value.r} value={value.rValue} onClick={rHandler} hideButtonText={hideButtonText} />
       {hideAnalogSticks ? (
         <Dpad value={value} onClick={onClick} />
       ) : (

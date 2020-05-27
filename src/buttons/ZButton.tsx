@@ -13,8 +13,9 @@ export const ZButton: React.FC<{
   const buttonColor = props.backgroundColor || "#6F1FFF";
   const textColor = props.color || "#FFFFFF";
   const Outer = styled.div`
+    box-sizing: content-box;
     width: 18em;
-    height: 4em;
+    height: 5em;
     border-radius: 3.5em;
     background-color: ${pressed ? buttonColor : "transparent"};
     border: solid 0.4em ${buttonColor};
