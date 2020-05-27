@@ -1,6 +1,6 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
-
-import styled from "@emotion/styled";
 
 export const AButton: React.FC<{
   pressed?: boolean;
@@ -9,44 +9,50 @@ export const AButton: React.FC<{
   hideButtonText?: boolean;
   onClick?: () => void;
 }> = (props) => {
-  const { hideButtonText, pressed, onClick } = props;
-  const buttonColor = props.backgroundColor || "#00674F";
-  const textColor = props.color || "#FFFFFF";
-  const Outer = styled.div`
-    box-sizing: content-box;
-    width: 9em;
-    height: 9em;
-    border-radius: 50%;
-    background-color: ${pressed ? buttonColor : "transparent"};
-    border: solid 0.5em ${buttonColor};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    ${onClick &&
-    `
-            cursor: pointer;
-            &:hover {
-                ${
-                  pressed
-                    ? "opacity: 0.85;"
-                    : `
-                    background-color: ${buttonColor};
-                    span {
-                        color: ${textColor};
-                    }
-                    `
-                }
-            }
-        `}
-    span {
-      display: ${hideButtonText ? "none" : "inline"};
-      font-size: 4.8em;
-      color: ${pressed ? textColor : buttonColor};
+  const { hideButtonText, pressed, color, backgroundColor, onClick } = props;
+  const hoverStyles = css`
+    &:hover {
+      cursor: pointer;
+      ${pressed
+        ? "opacity: 0.85;"
+        : `
+          background-color: ${backgroundColor};
+          span {
+            color: ${color};
+          }
+      `}
     }
   `;
   return (
-    <Outer onClick={onClick}>
-      <span>A</span>
-    </Outer>
+    <div
+      onClick={onClick}
+      css={css`
+        box-sizing: content-box;
+        width: 9em;
+        height: 9em;
+        border-radius: 50%;
+        background-color: ${pressed ? backgroundColor : "transparent"};
+        border: solid 0.5em ${backgroundColor};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ${onClick && hoverStyles}
+      `}
+    >
+      <span
+        css={css`
+          display: ${hideButtonText ? "none" : "inline"};
+          font-size: 4.8em;
+          color: ${pressed ? color : backgroundColor};
+        `}
+      >
+        A
+      </span>
+    </div>
   );
+};
+
+AButton.defaultProps = {
+  backgroundColor: "#00674F",
+  color: "#FFFFFF",
 };
