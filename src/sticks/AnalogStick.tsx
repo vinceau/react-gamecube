@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import React from "react";
-import styled from "@emotion/styled";
 
 export interface AnalogStickProps {
   x?: number;
@@ -23,29 +22,32 @@ const AnalogStickContainer: React.FC<
   const yValue = props.y !== undefined ? props.y : 0;
   const leftPos = `${50 + xValue * maxEndPosition * 100}%`;
   const topPos = `${50 - yValue * maxEndPosition * 100}%`;
-  const Outer = styled.div`
-    box-sizing: content-box;
-    position: relative;
-    width: ${outerWidth}em;
-    height: ${outerWidth}em;
-    margin: ${innerWidth / 2 - (0.5 - maxEndPosition) * outerWidth}em;
-  `;
-  const CircleContainer = styled.div`
-    position: absolute;
-    width: ${innerWidth}em;
-    height: ${innerWidth}em;
-    left: ${leftPos};
-    top: ${topPos};
-    margin-left: -${innerWidth / 2}em;
-    margin-top: -${innerWidth / 2}em;
-  `;
   return (
-    <Outer>
-      <CircleContainer>{children}</CircleContainer>
-      <svg width="100%" viewBox="0 0 212 212" version="1.1" overflow="visible">
-        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+    <div
+      css={css`
+        box-sizing: content-box;
+        position: relative;
+        width: ${outerWidth}em;
+        height: ${outerWidth}em;
+        margin: ${innerWidth / 2 - (0.5 - maxEndPosition) * outerWidth}em;
+      `}
+    >
+      <div
+        css={css`
+          position: absolute;
+          width: ${innerWidth}em;
+          height: ${innerWidth}em;
+          left: ${leftPos};
+          top: ${topPos};
+          margin-left: -${innerWidth / 2}em;
+          margin-top: -${innerWidth / 2}em;
+        `}
+      >
+        {children}
+      </div>
+      <svg width="100%" viewBox="0 0 212 212" overflow="visible" style={{ overflow: "visible" }}>
+        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <polygon
-            id="path3399"
             stroke={strokeColor}
             strokeWidth="5"
             fill={backgroundColor}
@@ -54,7 +56,7 @@ const AnalogStickContainer: React.FC<
           />
         </g>
       </svg>
-    </Outer>
+    </div>
   );
 };
 
