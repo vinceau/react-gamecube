@@ -48,7 +48,7 @@ export const XButton: React.FC<{
             y="50%"
             fontSize="52"
             fill={pressed ? color : backgroundColor}
-            style={{ display: hideButtonText ? "none" : "initial" }}
+            style={{ display: hideButtonText ? "none" : "inherit" }}
           >
             X
           </text>
