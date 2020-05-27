@@ -6,7 +6,7 @@ export default {
   title: "Controller",
 };
 
-export const Primary = (): JSX.Element => {
+export const Default = (): JSX.Element => {
   return <Controller />;
 };
 
