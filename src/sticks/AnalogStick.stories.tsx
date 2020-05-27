@@ -1,32 +1,66 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
-import { AnalogStick } from "./AnalogStick";
+import { AnalogStick, CStick } from "./AnalogStick";
 
 export default {
   title: "AnalogStick",
 };
 
-const color = undefined;
-const strokeColor = "#8F8F8F";
-
-export const Default = (): JSX.Element => <AnalogStick stickColor={color} strokeColor={strokeColor} />;
-export const FullRight = (): JSX.Element => <AnalogStick x={1} y={0} stickColor={color} strokeColor={strokeColor} />;
-export const FullLeft = (): JSX.Element => <AnalogStick x={-1} y={0} stickColor={color} strokeColor={strokeColor} />;
-export const FullTop = (): JSX.Element => <AnalogStick x={0} y={1} stickColor={color} strokeColor={strokeColor} />;
-export const FullBottom = (): JSX.Element => <AnalogStick x={0} y={-1} stickColor={color} strokeColor={strokeColor} />;
+export const Default = (): JSX.Element => (
+  <div>
+    <AnalogStick />
+    <CStick />
+  </div>
+);
+export const FullRight = (): JSX.Element => (
+  <div>
+    <AnalogStick x={1} y={0} />
+    <CStick x={1} y={0} />
+  </div>
+);
+export const FullLeft = (): JSX.Element => (
+  <div>
+    <AnalogStick x={-1} y={0} />
+    <CStick x={-1} y={0} />
+  </div>
+);
+export const FullTop = (): JSX.Element => (
+  <div>
+    <AnalogStick x={0} y={1} />
+    <CStick x={0} y={1} />
+  </div>
+);
+export const FullBottom = (): JSX.Element => (
+  <div>
+    <AnalogStick x={0} y={-1} />
+    <CStick x={0} y={-1} />
+  </div>
+);
 
 export const BottomLeft = (): JSX.Element => (
-  <AnalogStick x={-0.7625} y={-0.65} stickColor={color} strokeColor={strokeColor} />
+  <div>
+    <AnalogStick x={-0.7625} y={-0.65} />
+    <CStick x={-0.7625} y={-0.65} />
+  </div>
 );
 export const TopLeft = (): JSX.Element => (
-  <AnalogStick x={-0.6375} y={0.775} stickColor={color} strokeColor={strokeColor} />
+  <div>
+    <AnalogStick x={-0.6375} y={0.775} />
+    <CStick x={-0.6375} y={0.775} />
+  </div>
 );
 export const TopRight = (): JSX.Element => (
-  <AnalogStick x={0.625} y={0.7875} stickColor={color} strokeColor={strokeColor} />
+  <div>
+    <AnalogStick x={0.625} y={0.7875} />
+    <CStick x={0.625} y={0.7875} />
+  </div>
 );
 export const BottomRight = (): JSX.Element => (
-  <AnalogStick x={0.7125} y={-0.7} stickColor={color} strokeColor={strokeColor} />
+  <div>
+    <AnalogStick x={0.7125} y={-0.7} />
+    <CStick x={0.7125} y={-0.7} />
+  </div>
 );
 
 export const ColoredBackground = (): JSX.Element => (
@@ -36,6 +70,7 @@ export const ColoredBackground = (): JSX.Element => (
       background-color: darkblue;
     `}
   >
-    <AnalogStick x={0.7125} y={-0.7} stickColor="#DDDDDD" />
+    <AnalogStick x={0.7125} y={-0.7} />
+    <CStick x={0.7125} y={-0.7} />
   </div>
 );

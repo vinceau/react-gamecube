@@ -64,18 +64,6 @@ AnalogStickContainer.defaultProps = {
   strokeColor: "#8F8F8F",
 };
 
-export const AnalogStick: React.FC<{ stickColor?: string } & AnalogStickProps> = (props) => {
-  const { stickColor, strokeColor } = props;
-  return (
-    <AnalogStickContainer outerWidth={13} innerWidth={9} {...props}>
-      <AnalogStickCircle stickColor={stickColor} strokeColor={strokeColor} />
-    </AnalogStickContainer>
-  );
-};
-AnalogStick.defaultProps = {
-  stickColor: "#DDDDDD",
-};
-
 const AnalogStickCircle: React.FC<{
   stickColor?: string;
   strokeColor?: string;
@@ -112,4 +100,51 @@ const AnalogStickCircle: React.FC<{
 AnalogStickCircle.defaultProps = {
   stickColor: "#DDDDDD",
   strokeColor: "#8F8F8F",
+};
+
+const CStickCircle: React.FC<{
+  stickColor?: string;
+  strokeColor?: string;
+}> = (props) => {
+  const { stickColor, strokeColor } = props;
+  return (
+    <div>
+      <svg width="100%" viewBox="0 0 166 166" version="1.1" overflow="visible">
+        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g id="Group" transform="translate(3.000000, 3.000000)" fillRule="nonzero" stroke={strokeColor}>
+            <circle id="circle4351" strokeWidth="5" fill={stickColor} cx="80" cy="80" r="80"></circle>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+CStickCircle.defaultProps = {
+  strokeColor: "#8F8F8F",
+  stickColor: "#FDD700",
+};
+
+export const AnalogStick: React.FC<{ stickColor?: string } & AnalogStickProps> = (props) => {
+  const { stickColor, strokeColor } = props;
+  return (
+    <AnalogStickContainer outerWidth={13} innerWidth={9} {...props}>
+      <AnalogStickCircle stickColor={stickColor} strokeColor={strokeColor} />
+    </AnalogStickContainer>
+  );
+};
+AnalogStick.defaultProps = {
+  stickColor: "#DDDDDD",
+};
+
+export const CStick: React.FC<{ stickColor?: string } & AnalogStickProps> = (props) => {
+  const { stickColor, strokeColor } = props;
+  return (
+    <AnalogStickContainer outerWidth={12} innerWidth={6} {...props}>
+      <CStickCircle stickColor={stickColor} strokeColor={strokeColor} />
+    </AnalogStickContainer>
+  );
+};
+CStick.defaultProps = {
+  stickColor: "#FDD700",
+  strokeColor: "#FDD700",
 };
