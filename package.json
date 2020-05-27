@@ -10,13 +10,19 @@
   "description": "Gamecube controller input display",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest --passWithNoTests",
+    "test": "jest --verbose --passWithNoTests",
     "test:watch": "jest --watch",
     "start": "start-storybook -p 6060",
     "storybook": "build-storybook",
-    "prepublishOnly": "yarn run build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "yarn run lint --fix"
+    "lint:fix": "yarn run lint --fix",
+    "clean": "rimraf dist",
+    "prebuild": "yarn run clean",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish",
+    "prepublishOnly": "yarn run lint && yarn run test && yarn run build",
+    "postpublish": "git push origin master --follow-tags"
   },
   "keywords": [
     "react",
@@ -62,6 +68,7 @@
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
     "rollup": "^1.27.4",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
