@@ -4,15 +4,21 @@ import React from "react";
 
 import { SVGUniqueID } from "react-svg-unique-id";
 
-export const RTrigger: React.FC<{
+export interface TriggerButtonProps {
   pressed?: boolean;
   hideButtonText?: boolean;
   value?: number;
   color?: string;
   backgroundColor?: string;
   onClick?: () => void;
-}> = (props) => {
-  const { hideButtonText, onClick, pressed, color, backgroundColor } = props;
+}
+
+const TriggerButton: React.FC<
+  {
+    direction: string;
+  } & TriggerButtonProps
+> = (props) => {
+  const { direction, hideButtonText, onClick, pressed, color, backgroundColor } = props;
   const value = pressed ? 1 : props.value;
   const offset = `${(1 - value) * 100}%`;
   const hoverStyles = css`
@@ -30,6 +36,11 @@ export const RTrigger: React.FC<{
           `}
     }
   `;
+  const buttonText = direction === "right" ? "R" : "L";
+  const flippedStyles = css`
+    transform: scaleX(-1);
+    transform-origin: center;
+  `;
   return (
     <div
       onClick={onClick}
@@ -37,11 +48,12 @@ export const RTrigger: React.FC<{
         box-sizing: content-box;
         width: 15em;
         ${onClick && hoverStyles}
+        ${direction === "right" && flippedStyles}
       `}
     >
       <SVGUniqueID>
         <svg width="100%" viewBox="0 0 235 141" version="1.1" overflow="visible" style={{ overflow: "visible" }}>
-          <linearGradient id="rprogress" x1="0.5" y1="1" x2="0.5" y2="0">
+          <linearGradient id="progress" x1="0.5" y1="1" x2="0.5" y2="0">
             <stop offset="0%" stopOpacity="0" stopColor={backgroundColor} />
             <stop offset={offset} stopOpacity="0" stopColor={backgroundColor} />
             <stop offset={offset} stopOpacity="1" stopColor={backgroundColor} />
@@ -49,10 +61,9 @@ export const RTrigger: React.FC<{
           </linearGradient>
           <g>
             <path
-              fill="url(#rprogress)"
+              fill="url(#progress)"
               stroke={backgroundColor}
               strokeWidth="8"
-              transform="translate(117.920733, 70.343725) scale(-1, 1) translate(-117.920733, -70.343725)"
               d="M234.941486,37.9102532 C140.587902,69.5466833 51.1762154,107.627989 0.8999803,140.68745 C12.1209681,60.8935071 71.693988,0 143.5,0 C178.19432,0 210.03284,14.215631 234.941486,37.9102532 Z"
             />
             <text
@@ -64,9 +75,10 @@ export const RTrigger: React.FC<{
               fill={pressed ? color : backgroundColor}
               css={css`
                 display: ${hideButtonText ? "none" : "inline"};
+                ${direction === "right" && flippedStyles}
               `}
             >
-              R
+              {buttonText}
             </text>
           </g>
         </svg>
@@ -75,8 +87,11 @@ export const RTrigger: React.FC<{
   );
 };
 
-RTrigger.defaultProps = {
+TriggerButton.defaultProps = {
   value: 0,
   backgroundColor: "#8F8F8F",
   color: "#FFFFFF",
 };
+
+export const LTrigger: React.FC<TriggerButtonProps> = (props) => <TriggerButton {...props} direction="left" />;
+export const RTrigger: React.FC<TriggerButtonProps> = (props) => <TriggerButton {...props} direction="right" />;
