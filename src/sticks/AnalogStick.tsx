@@ -15,13 +15,10 @@ const AnalogStickContainer: React.FC<
     innerWidth: number; // in em
   } & AnalogStickProps
 > = (props) => {
-  const { outerWidth, innerWidth, children, backgroundColor, strokeColor } = props;
+  const { x, y, outerWidth, innerWidth, children, backgroundColor, strokeColor } = props;
   const maxEndPosition = 0.35; // how far away the circle should go
-  // const color = props.color ? props.color : "#FFFFFF";
-  const xValue = props.x !== undefined ? props.x : 0;
-  const yValue = props.y !== undefined ? props.y : 0;
-  const leftPos = `${50 + xValue * maxEndPosition * 100}%`;
-  const topPos = `${50 - yValue * maxEndPosition * 100}%`;
+  const leftPos = `${50 + x * maxEndPosition * 100}%`;
+  const topPos = `${50 - y * maxEndPosition * 100}%`;
   return (
     <div
       css={css`
@@ -61,6 +58,8 @@ const AnalogStickContainer: React.FC<
 };
 
 AnalogStickContainer.defaultProps = {
+  x: 0,
+  y: 0,
   backgroundColor: "transparent",
   strokeColor: "#8F8F8F",
 };
