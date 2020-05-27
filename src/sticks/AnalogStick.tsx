@@ -1,48 +1,50 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
-import styled from "@emotion/styled";
 
-export const AnalogStick: React.FC<{
+export interface AnalogStickProps {
   x?: number;
   y?: number;
-  color?: string;
   backgroundColor?: string;
   strokeColor?: string;
-}> = (props) => {
-  const outerWidth = 13; // in em
-  const innerWidth = 9; // in em
+}
+
+const AnalogStickContainer: React.FC<
+  {
+    outerWidth: number; // in em
+    innerWidth: number; // in em
+  } & AnalogStickProps
+> = (props) => {
+  const { x, y, outerWidth, innerWidth, children, backgroundColor, strokeColor } = props;
   const maxEndPosition = 0.35; // how far away the circle should go
-  const color = props.color ? props.color : "#FFFFFF";
-  const backgroundColor = props.color ? props.color : "#FFFFFF";
-  const strokeColor = props.strokeColor ? props.strokeColor : "#8F8F8F";
-  const xValue = props.x !== undefined ? props.x : 0;
-  const yValue = props.y !== undefined ? props.y : 0;
-  const leftPos = `${50 + xValue * maxEndPosition * 100}%`;
-  const topPos = `${50 - yValue * maxEndPosition * 100}%`;
-  const Outer = styled.div`
-    box-sizing: content-box;
-    position: relative;
-    width: ${outerWidth}em;
-    height: ${outerWidth}em;
-    margin: ${innerWidth / 2 - (0.5 - maxEndPosition) * outerWidth}em;
-  `;
-  const CircleContainer = styled.div`
-    position: absolute;
-    width: ${innerWidth}em;
-    height: ${innerWidth}em;
-    left: ${leftPos};
-    top: ${topPos};
-    margin-left: -${innerWidth / 2}em;
-    margin-top: -${innerWidth / 2}em;
-  `;
+  const leftPos = `${50 + x * maxEndPosition * 100}%`;
+  const topPos = `${50 - y * maxEndPosition * 100}%`;
   return (
-    <Outer>
-      <CircleContainer>
-        <AnalogStickCircle color={color} strokeColor={strokeColor} />
-      </CircleContainer>
-      <svg width="100%" viewBox="0 0 212 212" version="1.1" overflow="visible">
-        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+    <div
+      css={css`
+        box-sizing: content-box;
+        position: relative;
+        width: ${outerWidth}em;
+        height: ${outerWidth}em;
+        margin: ${innerWidth / 2 - (0.5 - maxEndPosition) * outerWidth}em;
+      `}
+    >
+      <div
+        css={css`
+          position: absolute;
+          width: ${innerWidth}em;
+          height: ${innerWidth}em;
+          left: ${leftPos};
+          top: ${topPos};
+          margin-left: -${innerWidth / 2}em;
+          margin-top: -${innerWidth / 2}em;
+        `}
+      >
+        {children}
+      </div>
+      <svg width="100%" viewBox="0 0 212 212" overflow="visible" style={{ overflow: "visible" }}>
+        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <polygon
-            id="path3399"
             stroke={strokeColor}
             strokeWidth="5"
             fill={backgroundColor}
@@ -51,22 +53,28 @@ export const AnalogStick: React.FC<{
           />
         </g>
       </svg>
-    </Outer>
+    </div>
   );
 };
 
+AnalogStickContainer.defaultProps = {
+  x: 0,
+  y: 0,
+  backgroundColor: "transparent",
+  strokeColor: "#8F8F8F",
+};
+
 const AnalogStickCircle: React.FC<{
-  color?: string;
+  stickColor?: string;
   strokeColor?: string;
 }> = (props) => {
-  const color = props.color ? props.color : "none";
-  const strokeColor = props.strokeColor ? props.strokeColor : "#000000";
+  const { strokeColor, stickColor } = props;
   return (
     <div>
       <svg width="100%" viewBox="0 0 166 166" version="1.1" overflow="visible">
         <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g id="Group" transform="translate(3.000000, 3.000000)" fillRule="nonzero" stroke={strokeColor}>
-            <circle id="circle4351" strokeWidth="5" fill={color} cx="80" cy="80" r="80"></circle>
+            <circle id="circle4351" strokeWidth="5" fill={stickColor} cx="80" cy="80" r="80"></circle>
             <path
               d="M80,61 C90.4934102,61 99,69.5065898 99,80 C99,90.4934102 90.4934102,99 80,99 C69.5065898,99 61,90.4934102 61,80 C61,69.5065898 69.5065898,61 80,61 Z"
               id="circle4182-path"
@@ -87,4 +95,56 @@ const AnalogStickCircle: React.FC<{
       </svg>
     </div>
   );
+};
+
+AnalogStickCircle.defaultProps = {
+  stickColor: "#DDDDDD",
+  strokeColor: "#8F8F8F",
+};
+
+const CStickCircle: React.FC<{
+  stickColor?: string;
+  strokeColor?: string;
+}> = (props) => {
+  const { stickColor, strokeColor } = props;
+  return (
+    <div>
+      <svg width="100%" viewBox="0 0 166 166" version="1.1" overflow="visible">
+        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g id="Group" transform="translate(3.000000, 3.000000)" fillRule="nonzero" stroke={strokeColor}>
+            <circle id="circle4351" strokeWidth="5" fill={stickColor} cx="80" cy="80" r="80"></circle>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+CStickCircle.defaultProps = {
+  strokeColor: "#8F8F8F",
+  stickColor: "#FDD700",
+};
+
+export const AnalogStick: React.FC<{ stickColor?: string } & AnalogStickProps> = (props) => {
+  const { stickColor, strokeColor } = props;
+  return (
+    <AnalogStickContainer outerWidth={13} innerWidth={9} {...props}>
+      <AnalogStickCircle stickColor={stickColor} strokeColor={strokeColor} />
+    </AnalogStickContainer>
+  );
+};
+AnalogStick.defaultProps = {
+  stickColor: "#DDDDDD",
+};
+
+export const CStick: React.FC<{ stickColor?: string } & AnalogStickProps> = (props) => {
+  const { stickColor, strokeColor } = props;
+  return (
+    <AnalogStickContainer outerWidth={12} innerWidth={6} {...props}>
+      <CStickCircle stickColor={stickColor} strokeColor={strokeColor} />
+    </AnalogStickContainer>
+  );
+};
+CStick.defaultProps = {
+  stickColor: "#FDD700",
+  strokeColor: "#FDD700",
 };

@@ -1,6 +1,6 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
-
-import styled from "@emotion/styled";
 
 export const ZButton: React.FC<{
   hideButtonText?: boolean;
@@ -9,44 +9,50 @@ export const ZButton: React.FC<{
   backgroundColor?: string;
   onClick?: () => void;
 }> = (props) => {
-  const { hideButtonText, pressed, onClick } = props;
-  const buttonColor = props.backgroundColor || "#6F1FFF";
-  const textColor = props.color || "#FFFFFF";
-  const Outer = styled.div`
-    box-sizing: content-box;
-    width: 18em;
-    height: 5em;
-    border-radius: 3.5em;
-    background-color: ${pressed ? buttonColor : "transparent"};
-    border: solid 0.4em ${buttonColor};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    ${onClick &&
-    `
-            cursor: pointer;
-            &:hover {
-                ${
-                  pressed
-                    ? "opacity: 0.85;"
-                    : `
-                background-color: ${buttonColor};
-                span {
-                    color : ${textColor};
-                }
-                `
-                }
-            }
+  const { hideButtonText, pressed, backgroundColor, color, onClick } = props;
+  const hoverStyles = css`
+    cursor: pointer;
+    &:hover {
+      ${pressed
+        ? "opacity: 0.85;"
+        : `
+          background-color: ${backgroundColor};
+          span {
+              color : ${color};
+          }
         `}
-    span {
-      display: ${hideButtonText ? "none" : "inline"};
-      font-size: 3.5em;
-      color: ${pressed ? textColor : buttonColor};
     }
   `;
   return (
-    <Outer onClick={onClick}>
-      <span>Z</span>
-    </Outer>
+    <div
+      onClick={onClick}
+      css={css`
+        box-sizing: content-box;
+        width: 18em;
+        height: 4em;
+        border-radius: 3.5em;
+        background-color: ${pressed ? backgroundColor : "transparent"};
+        border: solid 0.4em ${backgroundColor};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ${onClick && hoverStyles}
+      `}
+    >
+      <span
+        css={css`
+          display: ${hideButtonText ? "none" : "inline"};
+          font-size: 3.5em;
+          color: ${pressed ? color : backgroundColor};
+        `}
+      >
+        Z
+      </span>
+    </div>
   );
+};
+
+ZButton.defaultProps = {
+  backgroundColor: "#6F1FFF",
+  color: "#FFFFFF",
 };

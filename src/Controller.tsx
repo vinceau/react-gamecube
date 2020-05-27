@@ -1,6 +1,6 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
-
-import styled from "@emotion/styled";
 
 import { AButton, BButton, LTrigger, RTrigger, StartButton, XButton, YButton, ZButton } from "./buttons";
 import { ButtonInput, ControllerInputState, MainButtonsInputState } from "./types";
@@ -15,7 +15,7 @@ export const Controller: React.FC<{
 }> = (props) => {
   const { hideButtonText, hideAnalogSticks, onClick } = props;
   const value = props.value ? props.value : {};
-  const Outer = styled.div`
+  const outerStyles = css`
     box-sizing: content-box;
     display: grid;
     align-items: center;
@@ -38,20 +38,12 @@ export const Controller: React.FC<{
       font-size: 12px;
     }
   `;
-  const CStickContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    grid-column-start: span 3;
-  `;
   const lHandler = onClick ? (): void => onClick(ButtonInput.L) : undefined;
   const rHandler = onClick ? (): void => onClick(ButtonInput.R) : undefined;
   const zHandler = onClick ? (): void => onClick(ButtonInput.Z) : undefined;
   const startHandler = onClick ? (): void => onClick(ButtonInput.START) : undefined;
   return (
-    <Outer>
+    <div css={outerStyles}>
       <LTrigger pressed={value.l} value={value.lValue} onClick={lHandler} hideButtonText={hideButtonText} />
       <ZButton pressed={value.z} onClick={zHandler} hideButtonText={hideButtonText} />
       <RTrigger pressed={value.r} value={value.rValue} onClick={rHandler} hideButtonText={hideButtonText} />
@@ -63,12 +55,21 @@ export const Controller: React.FC<{
       <StartButton pressed={value.start} onClick={startHandler} hideButtonText={hideButtonText} />
       <MainButtons value={value} onClick={onClick} hideButtonText={hideButtonText} />
       {!hideAnalogSticks && (
-        <CStickContainer>
+        <div
+          css={css`
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            grid-column-start: span 3;
+          `}
+        >
           <Dpad value={value} onClick={onClick} />
           <CStick x={value.cStickX} y={value.cStickY} />
-        </CStickContainer>
+        </div>
       )}
-    </Outer>
+    </div>
   );
 };
 
@@ -79,17 +80,18 @@ const MainButtons: React.FC<{
 }> = (props) => {
   const value = props.value ? props.value : {};
   const { onClick, hideButtonText } = props;
-  const Outer = styled.div`
-    display: grid;
-    grid-gap: 1.2em;
-    grid-template-columns: repeat(3, 1fr);
-  `;
   const yHandler = onClick ? (): void => onClick(ButtonInput.Y) : undefined;
   const xHandler = onClick ? (): void => onClick(ButtonInput.X) : undefined;
   const aHandler = onClick ? (): void => onClick(ButtonInput.A) : undefined;
   const bHandler = onClick ? (): void => onClick(ButtonInput.B) : undefined;
   return (
-    <Outer>
+    <div
+      css={css`
+        display: grid;
+        grid-gap: 1.2em;
+        grid-template-columns: repeat(3, 1fr);
+      `}
+    >
       <span style={{ gridColumn: "1 / 3", gridRow: "1 / 2", justifySelf: "end" }}>
         <YButton pressed={value.y} onClick={yHandler} hideButtonText={hideButtonText} />
       </span>
@@ -102,6 +104,6 @@ const MainButtons: React.FC<{
       <span style={{ gridColumn: "1 / 2", gridRow: "1 / 4", alignSelf: "end", justifySelf: "end" }}>
         <BButton pressed={value.b} onClick={bHandler} hideButtonText={hideButtonText} />
       </span>
-    </Outer>
+    </div>
   );
 };
