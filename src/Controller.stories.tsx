@@ -2,16 +2,21 @@ import React from "react";
 import { Controller } from "./Controller";
 import { ButtonInput, ControllerInputState } from "./types";
 
+import { withKnobs, boolean } from "@storybook/addon-knobs";
+
 export default {
-  title: "Controller",
+  title: "src/Controller",
+  component: Controller,
+  decorators: [withKnobs],
 };
 
 export const Default = (): JSX.Element => {
-  return <Controller />;
-};
-
-export const HideAnalogSticks = (): JSX.Element => {
-  return <Controller hideAnalogSticks={true} />;
+  return (
+    <Controller
+      hideAnalogSticks={boolean("hideAnalogSticks", false)}
+      hideButtonText={boolean("hideButtonText", false)}
+    />
+  );
 };
 
 const toggleButton = (input: ButtonInput, oldState: Partial<ControllerInputState>): Partial<ControllerInputState> => {
@@ -64,29 +69,12 @@ export const Clickable = (): JSX.Element => {
   const onClick = (input: ButtonInput): void => {
     setValue((oldState) => toggleButton(input, oldState));
   };
-  return <Controller value={value} onClick={onClick} />;
-};
-
-export const ClickableHideAnalogSticks = (): JSX.Element => {
-  const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
-  const onClick = (input: ButtonInput): void => {
-    setValue((oldState) => toggleButton(input, oldState));
-  };
-  return <Controller hideAnalogSticks={true} value={value} onClick={onClick} />;
-};
-
-export const ClickableHideText = (): JSX.Element => {
-  const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
-  const onClick = (input: ButtonInput): void => {
-    setValue((oldState) => toggleButton(input, oldState));
-  };
-  return <Controller hideButtonText={true} value={value} onClick={onClick} />;
-};
-
-export const ClickableHideAnalogSticksAndText = (): JSX.Element => {
-  const [value, setValue] = React.useState<Partial<ControllerInputState>>({});
-  const onClick = (input: ButtonInput): void => {
-    setValue((oldState) => toggleButton(input, oldState));
-  };
-  return <Controller hideButtonText={true} hideAnalogSticks={true} value={value} onClick={onClick} />;
+  return (
+    <Controller
+      value={value}
+      onClick={onClick}
+      hideAnalogSticks={boolean("hideAnalogSticks", false)}
+      hideButtonText={boolean("hideButtonText", false)}
+    />
+  );
 };
