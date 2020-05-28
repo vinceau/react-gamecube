@@ -1,4 +1,25 @@
-# React Gamecube
+
+# `react-gamecube`
+
+[![npm version](https://img.shields.io/npm/v/react-gamecube.svg?style=flat)](https://npmjs.org/package/react-gamecube "View this project on npm")
+[![Build Status](https://github.com/vinceau/react-gamecube/workflows/build/badge.svg)](https://github.com/vinceau/react-gamecube/actions?workflow=build)
+[![License](https://img.shields.io/npm/l/react-gamecube)](https://github.com/vinceau/react-gamecube/blob/master/LICENSE)
+
+This library provides React components for displaying Gamecube controller inputs.
+
+## Installation
+
+**With NPM**
+
+```bash
+npm install react-gamecube
+```
+
+**With Yarn**
+
+```bash
+yarn add react-gamecube
+```
 
 ## Development
 
