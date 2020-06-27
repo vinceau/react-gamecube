@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/helper-create-regexp-features-plugin": "^7.10.1",
     "@emotion/core": "^10.0.28",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
