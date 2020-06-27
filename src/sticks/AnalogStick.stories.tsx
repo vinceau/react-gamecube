@@ -1,18 +1,36 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
+import { withKnobs, number } from "@storybook/addon-knobs";
+
 import { AnalogStick, CStick } from "./AnalogStick";
+import { jsxDecorator } from "storybook-addon-jsx";
 
 export default {
   title: "AnalogStick",
+  decorators: [withKnobs, jsxDecorator],
 };
 
-export const Default = (): JSX.Element => (
-  <div>
-    <AnalogStick />
-    <CStick />
-  </div>
-);
+export const Default = (): JSX.Element => {
+  const x = number("x", 0, {
+    range: true,
+    min: -1,
+    max: 1,
+    step: 0.01,
+  });
+  const y = number("y", 0, {
+    range: true,
+    min: -1,
+    max: 1,
+    step: 0.01,
+  });
+  return (
+    <div>
+      <AnalogStick x={x} y={y} />
+      <CStick x={x} y={y} />
+    </div>
+  );
+};
 export const FullRight = (): JSX.Element => (
   <div>
     <AnalogStick x={1} y={0} />

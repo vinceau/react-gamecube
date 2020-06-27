@@ -1,8 +1,10 @@
 import React from "react";
 import { AButton, BButton, StartButton } from "./CircleButton";
+import { jsxDecorator } from "storybook-addon-jsx";
 
 export default {
   title: "CircleButton",
+  decorators: [jsxDecorator],
 };
 
 export const Default = (): JSX.Element => (
