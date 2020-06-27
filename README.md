@@ -5,7 +5,7 @@
 [![Build Status](https://github.com/vinceau/react-gamecube/workflows/build/badge.svg)](https://github.com/vinceau/react-gamecube/actions?workflow=build)
 [![License](https://img.shields.io/npm/l/react-gamecube)](https://github.com/vinceau/react-gamecube/blob/master/LICENSE)
 
-> This library provides React components for displaying Gamecube controller inputs.
+> React component for displaying Gamecube controller inputs
 
 ![react-gamecube component screenshot example](https://i.imgur.com/cIMZPGx.png)
 
@@ -146,3 +146,7 @@ yarn run storybook
 ```
 
 You can then serve the files under `storybook-static` for demonstration.
+
+## License
+
+This software is released under the terms of [MIT license](LICENSE).
