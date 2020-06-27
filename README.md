@@ -69,10 +69,10 @@ An object containing which buttons have been pressed. See below for all the diff
 | `z` | boolean | Z trigger |
 | `lValue` | number | Left trigger analog value. Must be between 0 and 1. |
 | `rValue` | number | Right trigger analog value. Must be between 0 and 1. |
-| `controlX` | number | Analog stick X value. Must be between 0 and 1. |
-| `controlY` | number | Analog stick Y value. Must be between 0 and 1. |
-| `cStickX` | number | C stick X value. Must be between 0 and 1. |
-| `cStickY` | number | C stick Y value. Must be between 0 and 1. |
+| `controlX` | number | Analog stick X value. Must be between -1 and 1. |
+| `controlY` | number | Analog stick Y value. Must be between -1 and 1. |
+| `cStickX` | number | C stick X value. Must be between -1 and 1. |
+| `cStickY` | number | C stick Y value. Must be between -1 and 1. |
 
 
 ### `hideAnalogSticks`
