@@ -3,11 +3,12 @@ import { Controller } from "./Controller";
 import { ButtonInput, ControllerInputState } from "./types";
 
 import { withKnobs, boolean } from "@storybook/addon-knobs";
+import { jsxDecorator } from "storybook-addon-jsx";
 
 export default {
   title: "src/Controller",
   component: Controller,
-  decorators: [withKnobs],
+  decorators: [withKnobs, jsxDecorator],
 };
 
 export const Default = (): JSX.Element => {

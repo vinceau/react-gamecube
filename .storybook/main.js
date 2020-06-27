@@ -3,7 +3,8 @@ const path = require("path");
 module.exports = {
   stories: ["../src/**/*.stories.tsx"],
   // Add any Storybook addons you want here: https://storybook.js.org/addons/
-  addons: ["@storybook/addon-knobs", "@storybook/addon-storysource"],
+  // The order of the imports determines the order of the tabs
+  addons: ["storybook-addon-jsx", "@storybook/addon-knobs", "@storybook/addon-storysource"],
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.scss$/,

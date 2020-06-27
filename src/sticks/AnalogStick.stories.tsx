@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
-import { withKnobs, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, number } from "@storybook/addon-knobs";
 
 import { AnalogStick, CStick } from "./AnalogStick";
+import { jsxDecorator } from "storybook-addon-jsx";
 
 export default {
   title: "AnalogStick",
-  decorators: [withKnobs],
+  decorators: [withKnobs, jsxDecorator],
 };
 
 export const Default = (): JSX.Element => {

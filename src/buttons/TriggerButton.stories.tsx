@@ -3,9 +3,11 @@ import React from "react";
 import { withKnobs, boolean, number } from "@storybook/addon-knobs";
 import { LTrigger, RTrigger } from "./TriggerButton";
 
+import { jsxDecorator } from "storybook-addon-jsx";
+
 export default {
   title: "TriggerButtons",
-  decorators: [withKnobs],
+  decorators: [withKnobs, jsxDecorator],
 };
 
 export const Default = (): JSX.Element => {
