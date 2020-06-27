@@ -2,7 +2,7 @@
   "name": "react-gamecube",
   "description": "Gamecube controller input display",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": "vinceau/react-gamecube",
   "author": {
     "name": "Vince Au",
