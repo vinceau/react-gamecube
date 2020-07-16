@@ -68,6 +68,7 @@ const TriggerButton: React.FC<
             />
             <text
               alignmentBaseline="middle"
+              dominantBaseline="middle"
               textAnchor="middle"
               x="50%"
               y="33%"

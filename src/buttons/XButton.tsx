@@ -43,6 +43,7 @@ export const XButton: React.FC<{
           </g>
           <text
             alignmentBaseline="middle"
+            dominantBaseline="middle"
             textAnchor="middle"
             x="50%"
             y="50%"
