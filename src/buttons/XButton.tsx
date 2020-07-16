@@ -29,6 +29,7 @@ export const XButton: React.FC<{
     <div
       onClick={onClick}
       css={css`
+        user-select: none;
         box-sizing: content-box;
         width: 6em;
         ${onClick && hoverStyles}

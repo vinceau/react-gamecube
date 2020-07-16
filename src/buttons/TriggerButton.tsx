@@ -45,6 +45,7 @@ const TriggerButton: React.FC<
     <div
       onClick={onClick}
       css={css`
+        user-select: none;
         box-sizing: content-box;
         width: 15em;
         ${onClick && hoverStyles}

@@ -29,6 +29,7 @@ export const YButton: React.FC<{
     <div
       onClick={onClick}
       css={css`
+        user-select: none;
         box-sizing: content-box;
         width: 9.5em;
         ${onClick && hoverStyles}

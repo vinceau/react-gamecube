@@ -27,6 +27,7 @@ export const ZButton: React.FC<{
     <div
       onClick={onClick}
       css={css`
+        user-select: none;
         box-sizing: content-box;
         width: 18em;
         height: 4em;

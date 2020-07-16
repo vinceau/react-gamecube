@@ -35,6 +35,7 @@ const CircleButton: React.FC<
     <div
       onClick={onClick}
       css={css`
+        user-select: none;
         box-sizing: content-box;
         width: ${width};
         height: ${width};
