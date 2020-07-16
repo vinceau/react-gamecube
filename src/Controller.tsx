@@ -21,6 +21,7 @@ export const Controller: React.FC<{
     align-items: center;
     justify-items: center;
     font-size: 8px;
+    font-family: Arial;
     font-weight: 400;
     grid-template-columns: 100%;
     grid-gap: 10px;
