@@ -93,16 +93,16 @@ const MainButtons: React.FC<{
         grid-template-columns: repeat(3, 1fr);
       `}
     >
-      <span style={{ gridColumn: "1 / 3", gridRow: "1 / 2", justifySelf: "end" }}>
+      <span style={{ gridRow: "1 / 2", gridColumn: "1 / 3", justifySelf: "end", marginRight: "2.5em" }}>
         <YButton pressed={value.y} onClick={yHandler} hideButtonText={hideButtonText} />
       </span>
-      <span style={{ gridColumn: "2 / 3", gridRow: "2 / 4" }}>
+      <span style={{ gridRow: "2 / 3", gridColumn: "2 / 3" }}>
         <AButton pressed={value.a} onClick={aHandler} hideButtonText={hideButtonText} />
       </span>
-      <span style={{ gridColumn: "3 / 4", gridRow: "1 / 4", alignSelf: "end" }}>
+      <span style={{ gridRow: "1 / 3", gridColumn: "3 / 4", alignSelf: "end", marginBottom: "2.1em" }}>
         <XButton pressed={value.x} onClick={xHandler} hideButtonText={hideButtonText} />
       </span>
-      <span style={{ gridColumn: "1 / 2", gridRow: "1 / 4", alignSelf: "end", justifySelf: "end" }}>
+      <span style={{ gridRow: "2 / 4", gridColumn: "1 / 2", alignSelf: "end", justifySelf: "end", marginTop: "7em" }}>
         <BButton pressed={value.b} onClick={bHandler} hideButtonText={hideButtonText} />
       </span>
     </div>
