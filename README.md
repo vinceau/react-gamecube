@@ -7,7 +7,7 @@
 
 > React component for displaying Gamecube controller inputs
 
-![react-gamecube component screenshot example](https://i.imgur.com/cIMZPGx.png)
+![react-gamecube component screenshot example](https://i.imgur.com/h4iwbwH.png)
 
 For an interactive demo with examples, [check out the storybook](https://vinceau.github.com/react-gamecube).
 
