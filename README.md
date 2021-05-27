@@ -9,7 +9,7 @@
 
 ![react-gamecube component screenshot example](https://i.imgur.com/h4iwbwH.png)
 
-For an interactive demo with examples, [check out the storybook](https://vinceau.github.com/react-gamecube).
+For an interactive demo with examples, [check out the storybook](https://vinceau.github.io/react-gamecube).
 
 ## Installation
 
